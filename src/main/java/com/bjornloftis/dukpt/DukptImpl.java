@@ -30,7 +30,6 @@ public class DukptImpl {
         ipekbytes = assembleIpekFromKeyComponents(keyComponents);
         ksn = ipek.getKsn();
         ksnbytes = Hex.decode(ksn);
-        addBouncyCastleProvider();
     }
 
     public String encryptTrackDataTDEAZeroBytePadding(byte[] trackData) {
@@ -188,12 +187,6 @@ public class DukptImpl {
         r8[7] = (byte) 0;
         r8[5] = (byte) (r8[5] & 0xE0);
         return r8;
-    }
-
-    private void addBouncyCastleProvider() {
-        if (Security.getProvider("BC") == null) {
-            Security.addProvider(new BouncyCastleProvider());
-        }
     }
 
     private byte[][] extractKeyComponents(InitialPinEncryptionKey ipek) {
