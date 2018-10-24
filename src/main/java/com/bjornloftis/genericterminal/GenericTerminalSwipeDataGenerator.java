@@ -21,7 +21,6 @@ public class GenericTerminalSwipeDataGenerator {
     }
 
     public String generateSwipe() {
-        DukptImpl dukpt = new DukptImpl(ipek);
         String swipe = null;
         try {
             String ksn = ipek.getKsn();
